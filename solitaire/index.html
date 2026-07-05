@@ -27,5 +27,40 @@
 </head>
 <body>
   <div id="game"></div>
+  <script>
+(function () {
+  var errs = [];
+  function show() {
+    var el = document.getElementById("bootlog");
+    if (!el) {
+      el = document.createElement("div");
+      el.id = "bootlog";
+      el.style.cssText = "position:fixed;left:8px;right:8px;bottom:8px;z-index:99999;background:rgba(20,16,40,.94);color:#ffb3c8;font:12px/1.5 monospace;padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,.25);white-space:pre-wrap;word-break:break-all;max-height:45vh;overflow:auto";
+      (document.body || document.documentElement).appendChild(el);
+    }
+    el.textContent = "Диагностика запуска:
+" + errs.join("
+");
+  }
+  function add(m) { errs.push(m); show(); }
+  window.addEventListener("error", function (e) {
+    if (e && e.target && e.target !== window && (e.target.src || e.target.href)) {
+      add("resource fail: " + String(e.target.src || e.target.href).split("/").pop()); return;
+    }
+    add((e.message || "error") + (e.filename ? " @ " + String(e.filename).split("/").pop() + ":" + e.lineno : ""));
+  }, true);
+  window.addEventListener("unhandledrejection", function (e) {
+    var r = e.reason; add("promise: " + (r && r.message ? r.message : String(r)));
+  });
+  setTimeout(function () {
+    if (document.querySelector("canvas")) { var el = document.getElementById("bootlog"); if (el && !errs.length) el.remove(); return; }
+    add("Игра не стартовала за 7с. UA: " + navigator.userAgent);
+    var s = document.querySelector("script[type=module]");
+    if (s && s.src && window.fetch) {
+      fetch(s.src, { method: "HEAD" }).then(function (r) { add("bundle HEAD: " + r.status); }, function (er) { add("bundle fetch fail: " + String(er)); });
+    }
+  }, 7000);
+})();
+</script>
 </body>
 </html>
