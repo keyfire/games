@@ -11,11 +11,16 @@
     h1 { font-size: 28px; }
     .muted { color: #8a8ab0; }
     .games { display: grid; gap: 16px; margin-top: 32px; text-align: left; }
-    a.card { display: block; padding: 20px; border-radius: 14px; text-decoration: none;
-      background: #1b1b30; border: 1px solid #2b2b48; color: #fff; transition: border-color .15s; }
-    a.card:hover { border-color: #4e6ef2; }
-    a.card .t { font-size: 20px; font-weight: 700; }
-    a.card .d { color: #8a8ab0; font-size: 14px; margin-top: 6px; }
+    .card { padding: 20px; border-radius: 14px; background: #1b1b30;
+      border: 1px solid #2b2b48; transition: border-color .15s; }
+    .card:hover { border-color: #4e6ef2; }
+    .card a.main { display: block; text-decoration: none; color: #fff; }
+    .card .t { font-size: 20px; font-weight: 700; }
+    .card .d { color: #8a8ab0; font-size: 14px; margin-top: 6px; }
+    .card a.tg { display: inline-block; margin-top: 12px; padding: 6px 12px;
+      border-radius: 999px; background: #229ed9; color: #fff; font-size: 13px;
+      font-weight: 600; text-decoration: none; }
+    .card a.tg:hover { background: #1e8dc2; }
   </style>
 </head>
 <body>
@@ -23,46 +28,72 @@
   <h1>KeyFire Games</h1>
   <p class="muted">Казуальные игры – играются прямо в браузере и Telegram.</p>
   <div class="games">
-    <a class="card" href="case-simulator/">
-      <div class="t">Симулятор кейсов: Космос</div>
-      <div class="d">Открывай кейсы, крути рулетку, собери коллекцию из 20 артефактов.</div>
-    </a>
-    <a class="card" href="capybara-clicker/">
-      <div class="t">Капибара Кликер</div>
-      <div class="d">Тапай капибару, качай генераторы дохода, лови золотую капибару.</div>
-    </a>
-    <a class="card" href="sudoku/">
-      <div class="t">Судоку</div>
-      <div class="d">Классическая головоломка: три сложности, заметки, подсказки.</div>
-    </a>
-    <a class="card" href="2048/">
-      <div class="t">2048 Неон</div>
-      <div class="d">Объединяй плитки, доберись до 2048 и дальше.</div>
-    </a>
-    <a class="card" href="solitaire/">
-      <div class="t">Пасьянс Косынка</div>
-      <div class="d">Классический Klondike с умным тапом, подсказками и авто-сборкой.</div>
-    </a>
-    <a class="card" href="bubble-shooter/">
-      <div class="t">Пузыри</div>
-      <div class="d">Лопай стеклянные пузыри: рикошеты, грозди, комбо до x5.</div>
-    </a>
-    <a class="card" href="air-hockey/">
-      <div class="t">Аэрохоккей: Неон</div>
-      <div class="d">Против бота или вдвоём на одном экране. Матч до 7 голов.</div>
-    </a>
-    <a class="card" href="words/">
-      <div class="t">Слова из слова</div>
-      <div class="d">Составь все слова из букв заданного: 48 уровней, подсказки.</div>
-    </a>
-    <a class="card" href="backgammon/">
-      <div class="t">Нарды</div>
-      <div class="d">Длинные нарды против бота: подсказки, сейв партии, марсы.</div>
-    </a>
-    <a class="card" href="runner/">
-      <div class="t">Неоновый забег</div>
-      <div class="d">Три полосы, свайпы, прыжки. Беги дальше всех!</div>
-    </a>
+    <div class="card">
+      <a class="main" href="case-simulator/">
+        <div class="t">Симулятор кейсов: Космос</div>
+        <div class="d">Открывай кейсы, крути рулетку, собери коллекцию из 20 артефактов.</div>
+      </a>
+      <a class="tg" href="https://t.me/cosmo_cases_bot">Играть в Telegram</a>
+    </div>
+    <div class="card">
+      <a class="main" href="capybara-clicker/">
+        <div class="t">Капибара Кликер</div>
+        <div class="d">Тапай капибару, качай генераторы дохода, лови золотую капибару.</div>
+      </a>
+      <a class="tg" href="https://t.me/capy_tangerine_bot">Играть в Telegram</a>
+    </div>
+    <div class="card">
+      <a class="main" href="sudoku/">
+        <div class="t">Судоку</div>
+        <div class="d">Классическая головоломка: три сложности, заметки, подсказки.</div>
+      </a>
+      <a class="tg" href="https://t.me/sudoku_kf_bot">Играть в Telegram</a>
+    </div>
+    <div class="card">
+      <a class="main" href="2048/">
+        <div class="t">2048 Неон</div>
+        <div class="d">Объединяй плитки, доберись до 2048 и дальше.</div>
+      </a>
+      <a class="tg" href="https://t.me/neon2048_bot">Играть в Telegram</a>
+    </div>
+    <div class="card">
+      <a class="main" href="solitaire/">
+        <div class="t">Пасьянс Косынка</div>
+        <div class="d">Классический Klondike с умным тапом, подсказками и авто-сборкой.</div>
+      </a>
+      <a class="tg" href="https://t.me/kosynka_glass_bot">Играть в Telegram</a>
+    </div>
+    <div class="card">
+      <a class="main" href="bubble-shooter/">
+        <div class="t">Пузыри</div>
+        <div class="d">Лопай стеклянные пузыри: рикошеты, грозди, комбо до x5.</div>
+      </a>
+      <a class="tg" href="https://t.me/puzyri_pop_bot">Играть в Telegram</a>
+    </div>
+    <div class="card">
+      <a class="main" href="air-hockey/">
+        <div class="t">Аэрохоккей: Неон</div>
+        <div class="d">Против бота или вдвоём на одном экране. Матч до 7 голов.</div>
+      </a>
+    </div>
+    <div class="card">
+      <a class="main" href="words/">
+        <div class="t">Слова из слова</div>
+        <div class="d">Составь все слова из букв заданного: 48 уровней, подсказки.</div>
+      </a>
+    </div>
+    <div class="card">
+      <a class="main" href="backgammon/">
+        <div class="t">Нарды</div>
+        <div class="d">Длинные нарды против бота: подсказки, сейв партии, марсы.</div>
+      </a>
+    </div>
+    <div class="card">
+      <a class="main" href="runner/">
+        <div class="t">Неоновый забег</div>
+        <div class="d">Три полосы, свайпы, прыжки. Беги дальше всех!</div>
+      </a>
+    </div>
   </div>
 </main>
 </body>
