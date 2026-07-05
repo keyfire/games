@@ -22,12 +22,13 @@
     }
     #game { width: 100%; height: 100%; }
   </style>
-  <script type="module" crossorigin src="./assets/index-FO2hONw2.js"></script>
+  <script type="module" crossorigin src="./assets/index-D2ftzC-u.js"></script>
 </head>
 <body>
   <div id="game"></div>
   <script>
 (function () {
+  var NL = String.fromCharCode(10);
   var errs = [];
   function show() {
     var el = document.getElementById("bootlog");
@@ -37,9 +38,7 @@
       el.style.cssText = "position:fixed;left:8px;right:8px;bottom:8px;z-index:99999;background:rgba(20,16,40,.94);color:#ffb3c8;font:12px/1.5 monospace;padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,.25);white-space:pre-wrap;word-break:break-all;max-height:45vh;overflow:auto";
       (document.body || document.documentElement).appendChild(el);
     }
-    el.textContent = "Диагностика запуска:
-" + errs.join("
-");
+    el.textContent = "Диагностика запуска:" + NL + errs.join(NL);
   }
   function add(m) { errs.push(m); show(); }
   window.addEventListener("error", function (e) {
